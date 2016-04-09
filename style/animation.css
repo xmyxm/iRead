@@ -1,0 +1,107 @@
+
+/*页面切换样式*/
+.koala_mainviews{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    perspective: 1200px;
+}
+
+.koala_viewport {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #efefef;
+    visibility: hidden;
+}
+
+
+.koala_viewport.actived-viewport{
+    visibility: visible;
+}
+
+.koala_index{
+    z-index: 1;
+}
+.koala_rank{
+    z-index: 2;
+}
+.koala_free{
+    z-index: 3;
+}
+.koala_detail{
+    z-index: 4;
+}
+.open-gpu{
+    webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.pt-page-ontop{
+    z-index: 999;
+}
+.pt-page-scaleDown {
+    -webkit-animation: scaleDown .7s ease both;
+    -moz-animation: scaleDown .7s ease both;
+    animation: scaleDown .7s ease both;
+}
+
+@-webkit-keyframes scaleDown {
+    to { opacity: 0; -webkit-transform: scale(.8); }
+}
+@-moz-keyframes scaleDown {
+    to { opacity: 0; -moz-transform: scale(.8); }
+}
+@keyframes scaleDown {
+    to { opacity: 0; transform: scale(.8); }
+}
+
+.pt-page-moveFromRight {
+    -webkit-animation: moveFromRight .6s ease both;
+    -moz-animation: moveFromRight .6s ease both;
+    animation: moveFromRight .6s ease both;
+}
+
+@-webkit-keyframes moveFromRight {
+    from { -webkit-transform: translate3d(100%, 0, 0); }
+}
+@-moz-keyframes moveFromRight {
+    from { -moz-transform: translate3d(100%, 0, 0); }
+}
+@keyframes moveFromRight {
+    from { transform: translate3d(100%, 0, 0); }
+}
+
+.pt-page-moveFromLeft {
+    -webkit-animation: moveFromLeft .6s ease both;
+    -moz-animation: moveFromLeft .6s ease both;
+    animation: moveFromLeft .6s ease both;
+}
+
+@-webkit-keyframes moveFromLeft {
+    from { -webkit-transform: translate3d(-100%, 0, 0); }
+}
+@-moz-keyframes moveFromLeft {
+    from { -moz-transform: translate3d(-100%, 0, 0); }
+}
+@keyframes moveFromLeft {
+    from { transform: translate3d(-100%, 0, 0); }
+}
+
+
+
