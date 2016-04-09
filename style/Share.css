@@ -1,0 +1,59 @@
+.yd_webapp_share{
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	background:rgba(100,100,100,.5);
+	z-index:99999999999999;
+	display:none
+}
+.yd_webapp_share .shareButtons{
+	position:fixed;
+	left:50%;
+	top:50%;
+	width:250px;
+	height:80px;
+	margin-left:-125px;
+	margin-top:-40px;
+	background:rgba(42,42,42,.95);
+	border-radius:10px
+}
+.yd_webapp_share .shareButtons p{
+	color:#fff;
+	text-align:center;
+	line-height:34px
+}
+.yd_webapp_share .shareButtons div{
+	padding:0 20px;
+	display:-webkit-box;
+	height:33px
+}
+.yd_webapp_share .shareButtons div span{
+	-webkit-box-flex:1;
+	display:block;
+	height:100%
+}
+.yd_webapp_share .shareButtons div a{
+	display:block;
+	width:33px;
+	height:33px;
+	background:url(img/share_541e2ad.png);
+	background-size:auto 33px
+}
+.yd_webapp_share .shareButtons div a.qq{
+	background:url(img/share_qq_48110eb.png);
+	background-size:auto 33px
+}
+.yd_webapp_share .shareButtons div a.renren{
+	background-position:0 0;
+}
+.yd_webapp_share .shareButtons div a.sina{
+	background-position:-43px 0;
+}
+.yd_webapp_share .shareButtons div a.qqzone{
+	background-position:-86px 0;
+}
+.yd_webapp_share .shareButtons div a:active{
+	opacity:.5;
+}
