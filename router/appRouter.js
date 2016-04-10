@@ -12,16 +12,17 @@ define(["koala"],function(koala){
             ,'cgy':'cgy'
             ,'add':'add'
             ,'uc':'uc'
-            ,'msg':'msg'
+            ,'msg/:id':'msg'
             ,'detail/:bookid':'detail'
             ,'list/:id':'list'
             ,'login':'login'
+            ,'ulist':'ulist'
             ,'*i':'index'
         }
         //配置是否使用loading
         ,loading:$('#ui-loading')
         //配置页面切换顺序
-        ,pageOrder:['indexView', 'rankView','freeView','detailView',"categoryView","ucView",'addView','loginView','msgView']
+        ,pageOrder:['indexView', 'rankView','freeView','detailView',"categoryView","ucView",'addView','loginView','ulistView','msgView']
         ,index: function(title) {
             this.doAction('indexView', {});
         }
@@ -49,8 +50,11 @@ define(["koala"],function(koala){
         ,login:function(){
             this.doAction('loginView');
         }
-        ,msg:function(){
-            this.doAction('msgView');
+        ,msg:function(uid){
+            this.doAction('msgView',{uid:uid});
+        }
+        ,ulist:function(){
+            this.doAction('ulistView');
         }
     });
     return new appRouter();

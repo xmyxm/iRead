@@ -6,13 +6,13 @@ var BookExplainView = React.createBackboneClass({
             render:function(){
                 return (
                     <div id="page_container" className={this.props.styleName}>
-                                        <div className="columns" >
-                                            {
-                                                this.state.BookData.map(function(listAllData){
-                                                      return (<BookList listAllData={listAllData} />);
-                                                })
-                                            }
-                                        </div>
+                        <div className="columns" >
+                            {
+                                this.state.BookData.map(function(listAllData){
+                                      return (<BookList listAllData={listAllData} />);
+                                })
+                            }
+                        </div>
                     </div>
                     );
             }

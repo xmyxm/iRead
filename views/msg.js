@@ -6,9 +6,7 @@ define(['react','koala','Model','socket','jsx!MessageComponent'],function(React,
         tagName:'section',
         className:'koala_msg',
         onCreate:function(){
-            var UcView = React.createFactory(MsgTextComponent);
-            UcView = UcView({model:Model.userdb,sendMsg:this.msg});
-            React.render(UcView,document.getElementsByClassName('koala_msg')[0]);
+
         },
         msg:function(){
             var username = koala.getCookieValue("username");
@@ -23,15 +21,45 @@ define(['react','koala','Model','socket','jsx!MessageComponent'],function(React,
             socket.emit('userJoin',{user:username});
             socket.on('message' +username, function (data) {
                 console.log(data);
-                data =
+                //data =
             });
             var sendMsg = function(msg){
                 socket.emit('message', { content: msg.content,to:msg.to,user:username});
             }
           return sendMsg;
-        }(),
-        onShow:function(){
-
+        },
+        sendMsg:function(data){
+            var href = document.location.href;
+            data.to = href.substr(href.indexOf("msg/")+4);
+            data.type = 'private';
+            if(data.to){
+                if(koala.sendMsg){
+                    koala.sendMsg(data);
+                }else{
+                    koala.socketinit(true);
+                    koala.sendMsg(data);
+                }
+            }else{
+                console.log("当前用户不存在",'color:red');
+            }
+        },
+        onShow:function(name){
+            //console.log('name:'+JSON.stringify(name.params));
+            var href = document.location.href;
+            var to = href.substr(href.indexOf("msg/")+4);
+            var msgObjlist = Model.msglistdb.get();
+            var msgData = null;
+            if(msgObjlist){
+                for(var i= 0,l=msgObjlist.length;i<l;i++){
+                    if(msgObjlist[i].to == to){
+                        msgData = msgObjlist[i];
+                    }
+                }
+            }
+            Model.currentMsgdb.set(msgData);
+            var UcView = React.createFactory(MsgTextComponent);
+            UcView = UcView({model:Model.currentMsgdb,userlistdb:Model.userlistdb,sendMsg:this.sendMsg,to:to});
+            React.render(UcView,document.getElementsByClassName('koala_msg')[0]);
         },
         onLoad:function(){
 

@@ -1,4 +1,4 @@
-define(["underscore", "backbone", "react",'iscroll', "jsx!cAlert", "jsx!cLoading"],function(_, Backbone, React,iscroll, cAlert, cLoading){
+define(["underscore", "backbone", "react","socket",'iscroll', "jsx!cAlert", "jsx!cLoading"],function(_, Backbone, React,socket,iscroll, cAlert, cLoading){
     'use strict';
     var koala = {},
         root = window;
@@ -1224,6 +1224,22 @@ define(["underscore", "backbone", "react",'iscroll', "jsx!cAlert", "jsx!cLoading
             }
         }
         return '';
+    };
+    koala.socketinit = function(isRefresh){
+        var user = this.getCookieValue("username");
+        var socketObj = socket.connect('http://localhost:4001');
+        socketObj.emit('inform',{type:'online',user:user,Refresh:isRefresh});//需要登陆一次
+        socketObj.on('ALL', function (msg) {
+            console.log(msg);//接受全体广播
+        });
+/*        socketObj.on(user, function (msg) {
+            console.log(msg);//用户登陆后反馈在线人数
+        });*/
+        koala.sendMsg = function (data){
+            data.user = user;
+            socketObj.emit('message',data);
+        };
+        koala.socket = socketObj;
     };
     return koala
 })

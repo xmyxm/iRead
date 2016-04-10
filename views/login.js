@@ -1,7 +1,7 @@
 /**
  * Created by xuanfengchen on 16-3-21.
  */
-define(['react','koala','Model','jsx!LoginComponent'],function(React,koala,Model,LoginComponent){
+define(['react','koala','Model','router','jsx!LoginComponent'],function(React,koala,Model,router,LoginComponent){
     koala.pageView.loginView = koala.pageView.extend({
         tagName:'section',
         className:'koala_login',
@@ -38,7 +38,11 @@ define(['react','koala','Model','jsx!LoginComponent'],function(React,koala,Model
         login:function(param){
             var options={
                 type:'post',
-                sucBack:function(sucdata){console.log('请求成功，返回结果：'+JSON.stringify(sucdata));},
+                sucBack:function(sucdata){
+                    koala.socketinit();
+                    console.log('请求成功，返回结果：'+JSON.stringify(sucdata));
+                    router.navigate('ulist');
+                },
                 errBack:function(errodata){console.log('请求失败，出错原因：'+JSON.stringify(errodata));}
             };
             koala.ajax("http://localhost:3000/login",param,options);

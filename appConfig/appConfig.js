@@ -31,6 +31,7 @@
             "detailView":"views/detail",
             "loginView":"views/login",
             "msgView":"views/msg",
+            "ulistView":"views/ulist",
             /*组件*/
             "IndexComponent": "component/IndexComponent",
             "BookListAllComponent":"component/BookListAllComponent20160118",
@@ -49,6 +50,8 @@
             "LoginComponent":"component/LoginComponent",
             "MessageComponent":"component/MessageComponent",
             "MsgTextComponent":"component/MsgTextComponent",
+            "UserListComponent":"component/UserListComponent",
+            "UserItemComponent":"component/UserItemComponent",
             /*UI组件*/
             "cButton": "ui/c_Button",
             "cOverlay": "ui/c_Overlay",

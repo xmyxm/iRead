@@ -1,4 +1,338 @@
-﻿.box {
+﻿/*********************用户列表 begin*************************/
+.wx-panel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    float: left;
+    background: #2e3238
+}
+
+.header {
+    padding: 18px;
+    position: relative
+}
+
+.header .avatar {
+    display: table-cell;
+    vertical-align: middle;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: nowrap;
+    padding-right: 10.625px;
+}
+
+.header .avatar .img {
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    display: block;
+    cursor: pointer;
+}
+
+.header .info {
+    display: table-cell;
+    vertical-align: middle;
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 2000px;
+}
+
+.header .info .nickname .display_name {
+    display: inline-block;
+    font-weight: 400;
+    width: 156px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    color: #fff;
+    font-size: 18px;
+    vertical-align: top;
+    line-height: 31px;
+    text-decoration: none;
+}
+
+.header .info .nickname .opt {
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+}
+
+.web_wechat_add {
+    background: url(./img/sprite28a2f7.png) 0 -406px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.search_bar {
+    position: relative;
+    margin: 0 16px;
+}
+.search_bar .web_wechat_search {
+    position: absolute;
+    z-index: 101;
+    top: 1px;
+}
+
+.web_wechat_search {
+    background: url(./img/sprite28a2f7.png) 0 -1946px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.search_bar .frm_search {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    border: 0;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    background-color: #26292E;
+    color: #fff;
+    padding-left: 30px;
+    font-size: 12px;
+}
+
+.tab {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.tab .tab_item {
+    float: left;
+    width: 33.33333333%;
+    position: relative;
+}
+
+.tab .tab_item a {
+    display: block;
+    text-align: center;
+}
+
+.web_wechat_tab_chat_hl {
+    background: url(./img/sprite28a2f7.png) 0 -2083px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.tab .tab_item:after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    right: 0;
+    width: 0;
+    height: 20px;
+    border-right: 1px solid #24272C;
+}
+
+.tab .tab_item {
+    float: left;
+    width: 33.33333333%;
+    position: relative;
+}
+
+.tab .tab_item a {
+    display: block;
+    text-align: center;
+}
+
+.web_wechat_tab_public {
+    background: url(./img/sprite28a2f7.png) 0 -2232px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+.web_wechat_tab_friends {
+    background: url(./img/sprite28a2f7.png) 0 -2140px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.tab .tab_item.no_extra:after {
+    border-right: 0;
+}
+
+.tab:after {
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid #24272C;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav_view {
+    position: absolute;
+    top: 154px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.chat_list {
+    height: 100%;
+}
+
+.scroll-wrapper {
+    overflow: hidden!important;
+    padding: 0!important;
+    position: relative;
+}
+
+.scroll-wrapper>.scroll-content {
+    border: 0!important;
+    box-sizing: content-box!important;
+    height: auto;
+    left: 0;
+    margin: 0;
+    max-height: none!important;
+    max-width: none!important;
+    overflow: scroll!important;
+    padding: 0;
+    position: relative!important;
+    top: 0;
+    width: auto!important;
+}
+
+.chat_list .ico_loading {
+    text-align: center;
+    margin: 30px auto;
+    font-size: 14px;
+    color: #6b6f7c;
+}
+
+.chat_list .ico_loading img {
+    vertical-align: -3px;
+    margin-right: 5px;
+}
+
+.chat_list .ico_loading {
+    text-align: center;
+    margin: 30px auto;
+    font-size: 14px;
+    color: #6b6f7c;
+}
+
+.chat_item {
+    overflow: hidden;
+    padding: 12px 18px 11px;
+    border-bottom: 1px solid #292C33;
+    cursor: pointer;
+    position: relative;
+}
+
+.chat_item .ext {
+    float: right;
+    color: #6b6f7c;
+    font-size: 13px;
+    text-align: right;
+}
+
+.chat_item .ext .attr {
+    height: 19px;
+    line-height: 1.5;
+}
+
+.web_wechat_no-remind {
+    background: url(./img/sprite28a2f7.png) 0 -1292px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.chat_item .avatar {
+    float: left;
+    margin-right: 10px;
+    position: relative;
+}
+
+.chat_item .avatar .img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+.chat_item .info {
+    overflow: hidden;
+}
+
+.chat_item .info .nickname {
+    font-weight: 400;
+    font-size: 13px;
+    color: #FFF;
+    line-height: 20px;
+}
+
+.chat_item .info .nickname_text {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.chat_item .info .nickname {
+    font-weight: 400;
+    font-size: 13px;
+    color: #FFF;
+    line-height: 20px;
+}
+
+.chat_item {
+    overflow: hidden;
+    padding: 12px 18px 11px;
+    border-bottom: 1px solid #292C33;
+    cursor: pointer;
+    position: relative;
+}
+
+.chat_item.active .info .msg {
+    color: #FFF;
+}
+
+.chat_item .info .msg {
+    color: #989898;
+    font-size: 13px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    height: 1.5em;
+}
+
+/*********************用户列表 end****************************/
+
+
+/*********************聊天窗口 begin**************************/
+.box {
     position: relative;
     background-color: #eee;
     height: 100%;
@@ -245,18 +579,18 @@ pre{
 	position: relative;
 }
 
-a.btn{
+a.wxbtn{
 	text-decoration: none;
 }
 
-.btn_send{
+.wxbtn_send{
 	background-color: #fff;
 	color: #222;
 	padding-left: 30px;
 	padding-right: 30px;
 }
 
-.btn{
+.wxbtn{
 	display: inline-block;
 	border: 1px solid #c1c1c1;
 	border-radius: 4px;
@@ -335,7 +669,7 @@ a.btn{
 	clip: rect(1px,1px,1px,1px);
 }
 
-
+/*********************聊天窗口 end**************************/
 
 
 

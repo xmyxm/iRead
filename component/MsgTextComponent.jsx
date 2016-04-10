@@ -13,8 +13,8 @@ define(["react"],function(React){
                                                                     <div className="bubble_cont">
                                                                             <div className="plain">
                                                                                     <pre className="js_message_plain ng-binding">{info.content}</pre>
-                                                                                    <img className="ico_loading ng-hide" src="https://res.wx.qq.com/zh_CN/htmledition/v2/images/icon/ico_loading28a2f7.gif" alt="" />
-                                                                                    <i className="ico_fail web_wechat_message_fail" title="重新发送"></i>
+                                                                                    <img style={{display:"none"}} className="ico_loading ng-hide" src="https://res.wx.qq.com/zh_CN/htmledition/v2/images/icon/ico_loading28a2f7.gif" alt="" />
+                                                                                    <i style={{display:"none"}} className="ico_fail web_wechat_message_fail" title="重新发送"></i>
                                                                             </div>
                                                                     </div>
                                                             </div>

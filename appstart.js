@@ -134,21 +134,35 @@ app.get('/userinfo',function(req,res){
 var usocket = {},userscount = 0;
 io.on('connection', function (socket) {
     console.log('通信中------');
-    socket.on('userJoin', function(data) {
-        if(!usocket[data.user]){
-            usocket[data.user] = socket;
-            ++userscount;
-            console.log("成功登陆");
-        }else{
-            console.log("拒绝重复登陆");
+    socket.on('inform', function(data) {
+        console.log(data);
+        if(data.type == 'online'){
+            //如果当前 用户未登陆 或者 页面刷新 都需要直接登陆
+            if(!usocket[data.user] || data.Refresh){
+                usocket[data.user] = socket;
+                if(!data.Refresh){
+                    ++userscount;
+                }
+                console.log("成功登陆");
+            }else{
+                console.log("拒绝重复登陆"+usocket[data.user]+"*********"+data.user+"是否一样:"+(usocket[data.user]==socket));
+            }
+        }else if(data.type == 'offline'){
+            delete usocket[data.user];
+            --userscount;
         }
+        //发送在线用户信息
+        var userArray =new Array();
+        for(var x in usocket){userArray.push(x);}
+        socket.emit('ALL',{userscount:userscount,userslist:userArray});
     });
     socket.on('message', function (data) {
         console.log(data);
+        console.log(usocket[data.to]+'************'+usocket[data.user]);
         if (usocket[data.to] && usocket[data.user]) {
             console.log("找到了");
-            usocket[data.to].emit('message' + data.to, data);
-            usocket[data.user].emit('message' + data.user, data);
+            usocket[data.to].emit(data.to, data);
+            usocket[data.user].emit(data.user, data);
         }
     });
 });
