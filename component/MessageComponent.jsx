@@ -2,8 +2,8 @@ define(["react","koala","Model","jsx!MsgTextComponent"],function(React,koala,Mod
     var MsgView = React.createBackboneClass({
                 getInitialState: function() {
                     var msgObj = this.props.model.get();
-                    var userlistObj = this.props.userlistdb.get().userInfo;
-                    return {userinfo:userlistObj,touser:msgObj};
+                    var userlistObj = this.props.userlistdb.get().meInfo;
+                    return {meInfo:userlistObj,touser:msgObj};
                 },
                 sendInfo:function(){
                   var content = this.refs.msgContent.getDOMNode().value;
@@ -24,27 +24,33 @@ define(["react","koala","Model","jsx!MsgTextComponent"],function(React,koala,Mod
                     Model.msglistdb.set(msgObjlist);
                     var touser =  this.state.touser;
                     touser.contentlist.push(newMsg);
-                    this.setState({userinfo:this.state.userinfo,touser:touser});
+                    //console.log("msgObjlist:"+JSON.stringify(msgObjlist));
+                    //console.log("contentlist:"+JSON.stringify(touser.contentlist));
+                    this.setState({meInfo:this.state.meInfo,touser:touser});
                     //this.state.touser.set(touser);
                 },
                 componentWillMount:function(){
                     console.log("永远只执行一次");
                     var user = koala.getCookieValue("username");
                     self = this;
-                    koala.socket.on(user, function (msg) {
-                        console.log(msg);//用户登陆后反馈在线人数
-                        self.UpdateSendMsg(msg);
-                    });
+                    if(koala.socket){
+                        koala.socket.on(user, function (msg) {
+                            console.log(msg);//用户登陆后反馈在线人数
+                            self.UpdateSendMsg(msg);
+                        });
+                    }else{
+                        console.log("请重新建socket连接");
+                    }
                 },
                 componentWillReceiveProps:function(){
                     console.log("组件接收到一个新的prop时会被执行，且该方法在初始render时不会被调用。");
                     var msgObj = this.props.model.get();
-                    var userlistObj = this.props.userlistdb.get().userInfo;
-                    this.setState({userinfo:userlistObj,touser:msgObj});
+                    var userlistObj = this.props.userlistdb.get().meInfo;
+                    this.setState({meInfo:userlistObj,touser:msgObj});
                 },
               render:function(){
                 console.log("顺序测试");
-                var userinfo = this.state.userinfo;
+                var meInfo = this.state.meInfo;
                 var touser =  this.state.touser;
 
                 return(
@@ -63,10 +69,10 @@ define(["react","koala","Model","jsx!MsgTextComponent"],function(React,koala,Mod
                             <div className="box_bd chat_bd scrollbar-dynamic scroll-content" style={{marginBottom:"0px",marginRight:"0px",height:"400px"}}>
                                   {
                                       touser.contentlist.map(function(item){
-                                        if(item.id == userinfo.uid){
+                                        if(item.id == meInfo.uid){
                                           item.lcaClass = "bubble_primary right";
-                                          item.imgSrc = userinfo.imgSrc;
-                                          item.imgTitle = userinfo.name;
+                                          item.imgSrc = meInfo.imgSrc;
+                                          item.imgTitle = meInfo.name;
                                           item.userClass = "me";
                                         }else{
                                             item.lcaClass = "bubble_default left";

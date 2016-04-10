@@ -2,20 +2,20 @@ define(["react","jsx!UserItemComponent"],function(React,UserItemComponent){
     var UlistView = React.createBackboneClass({
                 getInitialState: function() {
                 var data = this.props.model.get();
-                  return {userlist:data.userlist,userInfo:data.userInfo};
+                  return {userlist:data.userlist,meInfo:data.meInfo};
                 },
               render:function(){
               var userlist = this.state.userlist;
-              var userInfo = this.state.userInfo;
+              var meInfo = this.state.meInfo;
                 return(
                     <div className="wx-panel">
                         <div className="header">
                             <div className="avatar">
-                               <img className="img" src={userInfo.imgSrc} />
+                               <img className="img" src={meInfo.imgSrc} />
                            </div>
                            <div className="info">
                                <h3 className="nickname">
-                                   <span className="display_name ng-binding">{userInfo.name}</span>
+                                   <span className="display_name ng-binding">{meInfo.name}</span>
                                    <a className="opt">
                                        <i className="web_wechat_add"></i>
                                    </a>

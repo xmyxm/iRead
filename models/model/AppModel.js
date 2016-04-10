@@ -194,11 +194,11 @@ model.bookdb=new koala.Model({
             init: {
                 defaultData:{
                     userlist:[
-                        {to:"123123",type:"group",name:"学车成员交流群",lastMsg:"今天哪里嗨？",lastMsgDate:"11:37",imgsrc:"./style/img/xcqimg.jpg"},
+                        {to:"123456",type:"group",name:"学车成员交流群",lastMsg:"今天哪里嗨？",lastMsgDate:"11:37",imgsrc:"./style/img/xcqimg.jpg"},
                         {to:"66666",type:"private",name:"张敬烽",lastMsg:"工头喊你来搬砖",lastMsgDate:"15:12",imgsrc:"./style/img/zjficon.jpg"},
                         {to:"654321",type:"private",name:"顾伟",lastMsg:"在么",lastMsgDate:"14:09",imgsrc:"./style/img/guweiicon.jpg"}
                     ],
-                    userInfo:{uid:"123456",name:"晨曦沐枫",imgSrc:"./style/img/cxficon.jpg"}
+                    meInfo:{uid:"123123",name:"晨曦沐枫",imgSrc:"./style/img/cxficon.jpg"}
                 },
                 "lifeTime": "2D",
                 "maxSize": "2M",
@@ -220,11 +220,11 @@ model.bookdb=new koala.Model({
                     ,userClass:"you",
                     contentlist:[
                         {id:'654321',content:'代付款多架飞机',date:''},
-                        {id:'123456',content:'从法国法国风格试试',date:''},
+                        {id:'123123',content:'从法国法国风格试试',date:''},
                         {id:'654321',content:'问问',date:''},
                         {id:'654321',content:'不牛逼牛逼牛逼',date:''},
-                        {id:'123456',content:'尽快尽快尽快',date:''},
-                        {id:'123456',content:'喂喂喂',date:''},
+                        {id:'123123',content:'尽快尽快尽快',date:''},
+                        {id:'123123',content:'喂喂喂',date:''},
                         {id:'654321',content:'气温气温',date:''}
                     ]},
                     {to:66666
@@ -234,15 +234,15 @@ model.bookdb=new koala.Model({
                         ,lcaClass:"bubble_default left"
                         ,userClass:"you",
                         contentlist:[
-                            {id:'123456',content:'cvvkk士大夫似的',date:''},
+                            {id:'123123',content:'cvvkk士大夫似的',date:''},
                             {id:'66666',content:'互相尊重下次回家',date:''},
-                            {id:'123456',content:'已UI第已i1',date:''},
-                            {id:'123456',content:'那些年才能下半场',date:''},
+                            {id:'123123',content:'已UI第已i1',date:''},
+                            {id:'123123',content:'那些年才能下半场',date:''},
                             {id:'66666',content:'粉色的',date:''},
                             {id:'66666',content:'vbv2',date:''},
-                            {id:'123456',content:'水电费是对方身份',date:''}
+                            {id:'123123',content:'水电费是对方身份',date:''}
                         ]},
-                    {to:123123
+                    {to:123456
                         ,type:'private'
                         ,imgSrc:"./style/img/xcqimg.jpg"
                         ,name:'学车成员交流群'

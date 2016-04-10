@@ -1,7 +1,7 @@
 /**
  * Created by xuanfengchen on 16-3-29.
  */
-define(['react','koala','Model','socket','jsx!MessageComponent'],function(React,koala,Model,Socket,MsgTextComponent){
+define(['react','koala','Model','socket','jsx!MessageComponent'],function(React,koala,Model,Socket,MessageComponent){
     koala.pageView.msgView = koala.pageView.extend({
         tagName:'section',
         className:'koala_msg',
@@ -57,9 +57,9 @@ define(['react','koala','Model','socket','jsx!MessageComponent'],function(React,
                 }
             }
             Model.currentMsgdb.set(msgData);
-            var UcView = React.createFactory(MsgTextComponent);
-            UcView = UcView({model:Model.currentMsgdb,userlistdb:Model.userlistdb,sendMsg:this.sendMsg,to:to});
-            React.render(UcView,document.getElementsByClassName('koala_msg')[0]);
+            var MsgTextView = React.createFactory(MessageComponent);
+            MsgTextView = MsgTextView({model:Model.currentMsgdb,userlistdb:Model.userlistdb,sendMsg:this.sendMsg,to:to});
+            React.render(MsgTextView,document.getElementsByClassName('koala_msg')[0]);
         },
         onLoad:function(){
 
