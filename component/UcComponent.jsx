@@ -1,4 +1,4 @@
-define(["react",],function(React,){
+define(["react","jsx!HeaderComponent","jsx!ButtonListComponent"],function(React,Header,ButtonList){
     var UserView = React.createBackboneClass({
             render:function(){
             var userData = this.props.userData;
